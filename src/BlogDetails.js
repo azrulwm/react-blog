@@ -3,11 +3,13 @@ import useFetch from "./useFetch";
 
 const BlogDetails = () => {
   const { id } = useParams();
+  console.log(id);
   const {
     data: blog,
     error,
     isPending,
-  } = useFetch("http://localhost:3000/blogs/" + id);
+  } = useFetch("http://localhost:8000/blogs/" + id);
+
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -29,7 +31,7 @@ const BlogDetails = () => {
           <h2>{blog.title}</h2>
           <p>Written by {blog.author}</p>
           <div>{blog.body}</div>
-          <button onclick={handleClick}>Delete</button>
+          <button onClick={handleClick}>Delete</button>
         </article>
       )}
     </div>
